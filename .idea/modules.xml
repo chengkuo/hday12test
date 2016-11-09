@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hay12_2_vitamio框架的使用/hay12_2_vitamio框架的使用.iml" filepath="$PROJECT_DIR$/hay12_2_vitamio框架的使用/hay12_2_vitamio框架的使用.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hday12_1_CoordinatorLayout的使用/hday12_1_CoordinatorLayout的使用.iml" filepath="$PROJECT_DIR$/hday12_1_CoordinatorLayout的使用/hday12_1_CoordinatorLayout的使用.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hday12_2test/hday12_2test.iml" filepath="$PROJECT_DIR$/hday12_2test/hday12_2test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hday12test.iml" filepath="$PROJECT_DIR$/hday12test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vitamio_library/vitamio_library.iml" filepath="$PROJECT_DIR$/vitamio_library/vitamio_library.iml" />
+    </modules>
+  </component>
+</project>

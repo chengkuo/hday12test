@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+实现在上下滚动的过程中，让图片和标题栏实现折叠切换效果
+1. 将CoordinatorLayout作为根标签
+2. 添加AppBarLayout作为子标签
+3. 在RecyclerView中添加
+4. 在AppBarLayout中添加子标签CollapsingToolbarLayout
+5. 在CollapsingToolbarLayout的布局中添加ImageView和Toolbar
+6. 在CollapsingToolbarLayout标签中添加属性：
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"    设置页面上下滚动时，当前标签的滚动效果
+            app:contentScrim="@color/colorPrimary"        设置图片收缩后标题栏上的覆盖色
+            app:expandedTitleMarginStart="150dp"  设置标题的左间距
+            android:theme="@style/my"   用于设置Toolbar中标题文本的文字颜色
+            如果文字颜色为白色，也可直接写为：android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+7. 在ImageView标签中添加属性：app:layout_collapseMode="parallax"  设置折叠效果
+	             pin：固定模式，在折叠的时候最后固定在顶端；
+	             parallax：视差模式，在折叠的时候会有个视差折叠的效果
+-->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="ay.qf.com.hday12.TwoActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/appbarlayout"
+        >
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:contentScrim="@color/colorPrimary"
+            app:expandedTitleMarginStart="150dp"
+            android:theme="@style/my"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:src="@mipmap/material_flat"
+                android:scaleType="fitXY"
+                app:layout_collapseMode="parallax"
+                android:layout_height="300dp" />
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="我是Toolbar！！！！"
+                android:id="@+id/toolbar"
+                >
+
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/rcv"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        ></android.support.v7.widget.RecyclerView>
+
+    <!--
+    app:layout_anchor="@id/appbarlayout"  让FloatingActionButton的位置始终参考AppBarLayout位置
+        app:layout_anchorGravity="bottom|right"    设置FloatingActionButton 位于AppBarLayout的右下角进行显示
+    -->
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_launcher"
+        app:layout_anchor="@id/appbarlayout"
+        app:layout_anchorGravity="bottom|right"
+        />
+</android.support.design.widget.CoordinatorLayout>

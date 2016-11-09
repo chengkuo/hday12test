@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+1. 将CoordinatorLayout作为根标签
+2. 添加子标签AppBarLayout
+3. 在AppBarLayout中添加子标签Toolbar和TabLayout
+4. 给Viewpager添加一个属性app:layout_behavior="@string/appbar_scrolling_view_behavior"
+作用；设置让ViewPager显示在AppBarlayout的下方
+5. 给Toolbar和TabLayout设置属性app:layout_scrollFlags
+作用：设置是否让当前控件滚动出屏幕
+-->
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="ay.qf.com.hday12.MainActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+        <!--android:layout_height="?attr/actionBarSize"  代表让Toolbar的高度为系统默认标题栏的高度-->
+        <android.support.v7.widget.Toolbar
+            app:title="我是Toolbar"
+            android:layout_width="match_parent"
+            app:layout_scrollFlags="scroll"
+            android:layout_height="?attr/actionBarSize"></android.support.v7.widget.Toolbar>
+
+        <android.support.design.widget.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tablayout"
+            ></android.support.design.widget.TabLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pager"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        ></android.support.v4.view.ViewPager>
+</android.support.design.widget.CoordinatorLayout>
